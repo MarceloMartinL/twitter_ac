@@ -7,14 +7,40 @@ services:
       - /var/lib/postgresql/data
     env_file:
       - '.env'
+
   web:
     build: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
+    environment:
+      RAILS_ENV: "development"
+      REDIS_URL: "redis://redis:6379/12"
     ports:
       - "3000:3000"
     depends_on:
       - db
+      - redis
     env_file:
       - '.env'
+
+  redis:
+    image: redis
+    command: redis-server
+    ports:
+      - "6379"
+    volumes:
+      - redis:/var/lib/redis/data
+
+  sidekiq:
+    build: .
+    depends_on:
+      - redis
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    env_file:
+      - '.env'
+
+# Create a container for redis and postgres persisted data.
+volumes:
+  postgres:
+  redis:

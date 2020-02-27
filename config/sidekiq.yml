@@ -1,0 +1,4 @@
+:schedule:
+  twitter_index:
+    cron: '*/5 * * * * *'   # Runs once per minute
+    class: TwitterIndexWorker
