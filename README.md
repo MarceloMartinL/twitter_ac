@@ -4,6 +4,7 @@ This app retrieves the last 50 tweets with hastags #chiledesperto or #chilequier
 
 ## Requirements
 
+- Ruby 2.6.5
 - Docker
 - Docker-compose
 - Twitter API tokens
