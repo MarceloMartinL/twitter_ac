@@ -15,7 +15,6 @@ services:
       - .:/myapp
     environment:
       RAILS_ENV: "development"
-      REDIS_URL: "redis://redis:6379/12"
     ports:
       - "3000:3000"
     depends_on:
@@ -39,8 +38,7 @@ services:
     command: bundle exec sidekiq -C config/sidekiq.yml
     env_file:
       - '.env'
-
-# Create a container for redis and postgres persisted data.
+      
 volumes:
   postgres:
   redis:

@@ -10,7 +10,9 @@ class TwitterIndexWorker
       config.access_token        = ENV['TWITTER_ACCESS_TOKEN']
       config.access_token_secret = ENV['TWITTER_SECRET_TOKEN']
     end
-    tweets = client.search('#chiledesperto OR #chilequierecambios', include_entities: true).take(50).map { |tweet| tweet.full_text }
+    tweets = client.search('#chiledesperto OR #chilequierecambios', include_entities: true)
+                   .take(50)
+                   .map { |tweet| tweet.full_text }
     ActionCable.server.broadcast 'twitter_channel', tweets: tweets
   end
 end
