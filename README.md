@@ -1,24 +1,37 @@
-# README
+# Twitter AC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## Requirements
 
-* System dependencies
+- Docker
+- Docker-compose
+- Twitter API tokens
 
-* Configuration
+## How To Use
 
-* Database creation
+Create a .env file in the root folder and set the ENV variables:
+```
+# Database config
 
-* Database initialization
+POSTGRES_DB=<YOUR DB (default: 'db')>
+POSTGRES_USER=<YOUR DB USER>
+POSTGRES_PASSWORD=<YOUR DB PASS>
 
-* How to run the test suite
+# Twitter API config
 
-* Services (job queues, cache servers, search engines, etc.)
+TWITTER_API_KEY=<YOUR TOKEN>
+TWITTER_SECRET_KEY=<YOUR TOKEN>
+TWITTER_ACCESS_TOKEN=<YOUR TOKEN>
+TWITTER_SECRET_TOKEN=<YOUR TOKEN>
 
-* Deployment instructions
+# Sidekiq config
 
-* ...
+REDIS_SIDEKIQ_URL=redis://redis:6379/12
+```
+The run the following commands to start the app:
+```
+$ docker-compose run web bundle install
+$ docker-compose run web rails db:create
+$ docker-compose run web rails up --build
+```
