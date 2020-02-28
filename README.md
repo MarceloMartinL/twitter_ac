@@ -33,5 +33,5 @@ The run the following commands to start the app:
 ```
 $ docker-compose run web bundle install
 $ docker-compose run web rails db:create
-$ docker-compose run web rails up --build
+$ docker-compose up --build
 ```
