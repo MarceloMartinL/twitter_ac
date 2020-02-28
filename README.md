@@ -1,6 +1,6 @@
 # Twitter AC
 
-
+This app retrieves the last 50 tweets with hastags #chiledesperto or #chilequierecambios every 5s, then updates the index view in real-time throught action cable.
 
 ## Requirements
 
