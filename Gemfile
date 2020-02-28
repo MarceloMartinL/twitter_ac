@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'sidekiq', '~> 6.0.5'
 gem 'sidekiq-scheduler', '~> 3.0.1'
 gem 'twitter', '~> 7.0.0'
+gem 'jquery-rails', '~> 4.3.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
