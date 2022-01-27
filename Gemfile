@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'sidekiq', '~> 6.0.5'
+gem 'sidekiq', '~> 6.4.0'
 gem 'sidekiq-scheduler', '~> 3.0.1'
 gem 'twitter', '~> 7.0.0'
 gem 'jquery-rails', '~> 4.3.5'
